@@ -18,6 +18,7 @@ public class Game extends JFrame implements Runnable{
     ArrayList<Texture> textures;
     Camera camera;
     Screen screen;
+    //the overview of the map, 0 is free space to walk
     static int[][] map =
             {
                     {1,1,1,1,1,1,1,1,2,2,2,2,2,2,2},
@@ -63,6 +64,9 @@ public class Game extends JFrame implements Runnable{
         thread.start();
     }
 
+    /**
+     * Renders the graphical UI, by using 4 different .png and a @BufferStrategy.
+     */
     void render() {
         BufferStrategy bs = getBufferStrategy();
         if(bs == null) {
@@ -73,6 +77,10 @@ public class Game extends JFrame implements Runnable{
         g.drawImage(image, 0, 0, image.getWidth(), image.getHeight(), null);
         bs.show();
     }
+
+    /**
+     * Starts the thread.
+     */
     public void run() {
         long lastTime = System.nanoTime();
         final double ns = 1000000000.0 / 60.0;//60 times per second
@@ -93,7 +101,7 @@ public class Game extends JFrame implements Runnable{
         }
     }
     public static void main(String [] args) {
-        Game game = new Game();
+        new Game();
     }
 }
 

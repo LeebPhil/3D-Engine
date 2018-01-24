@@ -15,6 +15,9 @@ class Texture {
         load();
     }
 
+    /**
+     * Loads 4 different .png
+     */
     private void load() {
         try {
             BufferedImage image = ImageIO.read(new File(loc));
@@ -26,9 +29,13 @@ class Texture {
         }
     }
 
-    static Texture wood = new Texture("resources/wood.png", 64);
-    static Texture brick = new Texture("resources/redbrick.png", 64);
-    static Texture bluestone = new Texture("resources/bluestone.png", 64);
-    static Texture stone = new Texture("resources/greystone.png", 64);
+    //static Texture wood = new Texture("resources/wood.png", 64);
+    //static Texture brick = new Texture("resources/redbrick.png", 64);
+    //static Texture bluestone = new Texture("resources/bluestone.png", 64);
+    //static Texture stone = new Texture("resources/greystone.png", 64);
+    static Texture wood = new Texture("resources/steam.png", 64);
+    static Texture brick = new Texture("resources/turtok.png", 64);
+    static Texture bluestone = new Texture("resources/winnie.png", 64);
+    static Texture stone = new Texture("resources/csgo.png", 64);
 }
 

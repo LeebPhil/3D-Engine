@@ -15,6 +15,12 @@ public class Camera implements KeyListener{
         xPlane = xp;
         yPlane = yp;
     }
+
+    /**
+     * Uses the KeyEvent to recognize which key is pressed and how to behave.
+     *
+     * @param key the key the user presses
+     */
     public void keyPressed(KeyEvent key) {
         if((key.getKeyCode() == KeyEvent.VK_LEFT || key.getKeyCode() == KeyEvent.VK_A))
             left = true;
@@ -25,6 +31,12 @@ public class Camera implements KeyListener{
         if((key.getKeyCode() == KeyEvent.VK_DOWN || key.getKeyCode() == KeyEvent.VK_S))
             back = true;
     }
+
+    /**
+     * Uses KeyEvent to recognize whether the user releases a key, to stop the specific movement.
+     *
+     * @param key the key which the user releases
+     */
     public void keyReleased(KeyEvent key) {
         if((key.getKeyCode() == KeyEvent.VK_LEFT || key.getKeyCode() == KeyEvent.VK_A))
             left = false;
@@ -35,6 +47,13 @@ public class Camera implements KeyListener{
         if((key.getKeyCode() == KeyEvent.VK_DOWN || key.getKeyCode() == KeyEvent.VK_S))
             back = false;
     }
+
+    /**
+     * Updates the position on the map by calculating the position, using the current position, direction of movement
+     * and the MOVE_SPEED.
+     *
+     * @param map
+     */
     void update(int[][] map) {
         if(forward) {
             if(map[(int)(xPos + xDir * MOVE_SPEED)][(int)yPos] == 0) {

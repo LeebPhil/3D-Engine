@@ -15,12 +15,19 @@ class Screen {
         height = h;
     }
 
+    /**
+     * Updates the screen, by using the current position and direction on the map. Position, direction and the map
+     * decide which .png will be shown as wall.
+     *
+     * @param camera
+     * @param pixels
+     */
     void update(Camera camera, int[] pixels) {
         for(int n=0; n<pixels.length/2; n++) {
-            if(pixels[n] != Color.DARK_GRAY.getRGB()) pixels[n] = Color.DARK_GRAY.getRGB();
+            if(pixels[n] != Color.cyan.getRGB()) pixels[n] = Color.cyan.getRGB();
         }
         for(int i=pixels.length/2; i<pixels.length; i++){
-            if(pixels[i] != Color.gray.getRGB()) pixels[i] = Color.gray.getRGB();
+            if(pixels[i] != Color.lightGray.getRGB()) pixels[i] = Color.lightGray.getRGB();
         }
 
         for(int x=0; x<width; x=x+1) {
